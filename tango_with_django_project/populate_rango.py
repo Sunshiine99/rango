@@ -4,7 +4,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 
 import django
 django.setup()
-
 from rango.models import Category, Page
 
 # First, we will create lists of dictionaries containing the pages
@@ -55,6 +54,8 @@ def populate():
 for c in Category.objects.all():
     for p in Page.objects.filter(category=c):
         print ("- {0} - {1}".format(str(c), str(p)))
+
+
 
 def add_page(cat, title, url, views=0):
     p = Page.objects.get_or_create(category=cat, title=title) [0]
